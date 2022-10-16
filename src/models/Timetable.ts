@@ -10,4 +10,6 @@ export class Institution {
   text!: string
 }
 
-export const InstitutionModel = getModelForClass(Institution)
+const InstitutionModel = getModelForClass(Institution)
+
+export default InstitutionModel
