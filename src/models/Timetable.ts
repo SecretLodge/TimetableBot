@@ -8,6 +8,8 @@ export class Institution {
   url!: string
   @prop({ required: true })
   text!: string
+  @prop({ required: true })
+  type!: string
 }
 
 const InstitutionModel = getModelForClass(Institution)

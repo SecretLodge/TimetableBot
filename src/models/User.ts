@@ -7,9 +7,9 @@ export class UserTimetableBot {
   @prop({ required: true, default: 'ru' })
   language!: string
   @prop({ required: false })
-  institutions?: string[]
+  institution!: string
   @prop({ required: false })
-  usernames?: string[]
+  usernames!: string[]
 }
 
 export const UserModel = getModelForClass(UserTimetableBot)

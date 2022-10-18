@@ -14,10 +14,12 @@
     "Назад",
     "Техникум",
     "Aviat",
+    "dbuser",
     "grammyjs",
     "LESSGO"
   ],
-  "editor.fontFamily": "JetBrains Mono, Consolas, 'Courier New', monospace",
+  "editor.fontFamily": "JetBrains Mono",
   "editor.fontSize": 14,
-  "editor.lineHeight": 1.6
+  "editor.lineHeight": 1.6,
+  "editor.fontLigatures": true
 }
