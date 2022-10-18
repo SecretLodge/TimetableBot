@@ -3,7 +3,7 @@ import axios, { AxiosResponse } from 'axios'
 
 interface extract {
   url: string
-  name: string
+  text: string
   extension: string
   institution: string
 }
@@ -24,9 +24,9 @@ const extractAndDownload = async (params: extract) => {
   void downloadFile(download)
 }
 
-const extractFile = async ({ url, name, extension, institution }: extract) => {
+const extractFile = async ({ url, text, extension, institution }: extract) => {
   const pathToExtension = pathFile({ institution, extension })
-  const file = fs.createWriteStream(`${pathToExtension}${name}.${extension}`)
+  const file = fs.createWriteStream(`${pathToExtension}${text}.${extension}`)
   const response = await axios.get(url, { responseType: 'stream' })
   return { file, response, pathToExtension }
 }
