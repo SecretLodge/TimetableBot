@@ -16,7 +16,9 @@
     "Aviat",
     "dbuser",
     "grammyjs",
-    "LESSGO"
+    "LESSGO",
+    "pdftobuffer",
+    "poppler"
   ],
   "editor.fontFamily": "JetBrains Mono",
   "editor.fontSize": 14,

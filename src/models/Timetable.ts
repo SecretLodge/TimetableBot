@@ -1,17 +1,17 @@
 import { getModelForClass, modelOptions, prop } from '@typegoose/typegoose'
 
 @modelOptions({ schemaOptions: { timestamps: true } })
-export class Institution {
+export class Timetable {
   @prop({ required: true })
   institution!: string
   @prop({ required: true })
-  url!: string
+  href!: string
   @prop({ required: true })
   text!: string
   @prop({ required: true })
-  type!: string
+  extension!: string
 }
 
-const InstitutionModel = getModelForClass(Institution)
+const TimetableModel = getModelForClass(Timetable)
 
-export default InstitutionModel
+export default TimetableModel

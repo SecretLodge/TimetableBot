@@ -1,13 +1,14 @@
-import InstitutionModel, { Institution } from '@/models/Timetable'
+import TimetableModel, { Timetable } from '@/models/Timetable'
 
-export default async (model: typeof InstitutionModel, institution: string) => {
-  const timetablesRows: Institution[][] = []
-  const timetablesAll: Institution[] = await model.find({
+export default async (model: typeof TimetableModel, institution: string) => {
+  const timetablesRows: Timetable[][] = []
+  const timetablesAll: Timetable[] = await model.find({
     institution,
   })
 
   for (let i = 0; i < timetablesAll.length; i++) {
     timetablesRows.push(timetablesAll.splice(0, 5))
   }
+  if (timetablesAll.length) timetablesRows.push(timetablesAll)
   return timetablesRows
 }

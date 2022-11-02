@@ -1,7 +1,6 @@
 import { Menu } from '@grammyjs/menu'
 import Context from '@/models/Context'
 import allTimetableMenu from '@/menus/allTimetable'
-import sendOptions from '@/helpers/sendOptions'
 
 const timetablesMenu = new Menu<Context>('timetables')
 

@@ -7,7 +7,9 @@ import { sequentialize } from 'grammy-middlewares'
 import attachUser from '@/middlewares/attachUser'
 import bot from '@/helpers/bot'
 import configureI18n from '@/middlewares/configureI18n'
+import handleCountUsers from '@/handlers/handleCountUsers'
 import handleStart from '@/handlers/start'
+import handleStartCheckTimetable from '@/handlers/startCheckTimetable'
 import i18n from '@/helpers/i18n'
 import startMenu from '@/menus/start'
 import startMongo from '@/helpers/startMongo'
@@ -23,6 +25,8 @@ async function runApp() {
     .use(configureI18n)
     .use(startMenu)
   bot.command('start', handleStart)
+  bot.command('startcheck', handleStartCheckTimetable)
+  bot.command('getcountusers', handleCountUsers)
   bot.catch(console.error)
   await bot.init()
   run(bot)

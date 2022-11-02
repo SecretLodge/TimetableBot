@@ -9,14 +9,14 @@ export class UserTimetableBot {
   @prop({ required: false })
   institution!: string
   @prop({ required: false })
-  usernames!: string[]
+  type?: string
 }
 
 export const UserModel = getModelForClass(UserTimetableBot)
 
-export function findOrCreateUser(id: number) {
+export function findOrCreateUser(id: number, type: string) {
   return UserModel.findOneAndUpdate(
-    { id },
+    { id, type },
     {},
     {
       upsert: true,

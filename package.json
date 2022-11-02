@@ -1,10 +1,10 @@
 {
-  "name": "telegram-bot-starter",
+  "name": "timetable-bot",
   "version": "1.0.0",
-  "description": "Telegram bot starter based on grammY",
+  "description": "Telegram bot for notifications about changes in the schedule",
   "main": "dist/app.js",
   "repository": "https://github.com/Borodutch/telegram-bot-template",
-  "author": "backmeupplz <backmeupplz@gmail.com>",
+  "author": "secretlodge",
   "license": "MIT",
   "scripts": {
     "distribute": "yarn build-ts && node dist/app.js",
@@ -17,7 +17,10 @@
     "@grammyjs/i18n": "^0.5.0",
     "@grammyjs/menu": "^1.0.4",
     "@grammyjs/runner": "^1.0.3",
+    "@types/puppeteer": "^5.4.7",
+    "axios": "v0.27.2",
     "cheerio": "^1.0.0-rc.12",
+    "colors": "^1.4.0",
     "dotenv": "^10.0.0",
     "envalid": "^7.2.2",
     "grammy": "^1.5.0",
@@ -26,7 +29,6 @@
   },
   "devDependencies": {
     "@typegoose/typegoose": "^9.3.1",
-    "@types/axios": "^0.14.0",
     "@types/cheerio": "^0.22.31",
     "@types/js-yaml": "^4.0.5",
     "@types/node": "^16.11.12",

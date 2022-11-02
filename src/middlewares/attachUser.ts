@@ -1,15 +1,18 @@
 import { NextFunction } from 'grammy'
-import { findOrCreateUser } from '@/models/User'
+import { UserModel } from '@/models/User'
+import { printNewUser } from '@/helpers/console'
 import Context from '@/models/Context'
 
 export default async function attachUser(ctx: Context, next: NextFunction) {
-  if (!ctx.from) {
-    throw new Error('No from field found')
-  }
-  const user = await findOrCreateUser(ctx.from.id)
+  if (ctx.chat?.type == 'channel') return
+  let user = await UserModel.findOne({ id: ctx.chat?.id })
+
   if (!user) {
-    throw new Error('User not found')
+    user = await UserModel.create({ id: ctx.chat?.id, type: ctx.chat?.type })
+    await user.save()
+    void printNewUser(ctx.from?.username)
   }
+
   ctx.dbuser = user
   return next()
 }

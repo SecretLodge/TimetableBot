@@ -13,6 +13,7 @@ institutionsMenu.dynamic(async () => {
 
 const createText = async (menu: MenuRange<Context>) => {
   const institutions = await InstitutionModel.distinct('institution')
+
   institutions.map((item: string) => {
     menu.submenu(
       item,
