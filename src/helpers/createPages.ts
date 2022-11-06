@@ -2,10 +2,11 @@ import TimetableModel, { Timetable } from '@/models/Timetable'
 
 export default async (model: typeof TimetableModel, institution: string) => {
   const timetablesRows: Timetable[][] = []
-  const timetablesAll: Timetable[] = await model.find({
-    institution,
-  })
-
+  const timetablesAll: Timetable[] = await model
+    .find({
+      institution,
+    })
+    .sort({ createdAt: -1 })
   for (let i = 0; i < timetablesAll.length; i++) {
     timetablesRows.push(timetablesAll.splice(0, 5))
   }
