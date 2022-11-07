@@ -5,9 +5,7 @@ import allTimetableMenu from '@/menus/allTimetable'
 const timetablesMenu = new Menu<Context>('timetables')
 
 timetablesMenu
-  .submenu('🕰 Расписание за всё время', 'allTimetableMenu', (ctx: Context) => {
-    return ctx.editWithText('timetable', 'Авиационного Техникума')
-  })
+  .submenu('🕰 Расписание за всё время', 'allTimetableMenu')
   .row()
   .submenu('🏫 Изменить учёбное заведение', 'institutions', (ctx: Context) => {
     return ctx.editWithText('institutions')

@@ -26,7 +26,10 @@ const createText = async (menu: MenuRange<Context>) => {
 const chooseInstitution = (ctx: Context, institution: string) => {
   ctx.dbuser.institution = institution
   void ctx.dbuser.save()
-  void ctx.editWithText('done')
+  void ctx.editMessageText(
+    `Отлично, всё готово к работе.\nКогда появитсья новое расписание, бот отправит вам его.\n\n🏫 <b>Учебное заведение:</b> ${ctx.dbuser.institution}`,
+    { parse_mode: 'HTML' }
+  )
 }
 
 institutionsMenu.register(timetablesMenu)
