@@ -14,5 +14,11 @@ export default async function attachUser(ctx: Context, next: NextFunction) {
   }
 
   ctx.dbuser = user
+
+  if (!ctx.dbuser.username && ctx.chat?.type == 'private') {
+    ctx.dbuser.username = ctx.chat.username
+    await ctx.dbuser.save()
+  }
+
   return next()
 }

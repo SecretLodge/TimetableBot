@@ -8,6 +8,7 @@ import attachUser from '@/middlewares/attachUser'
 import bot from '@/helpers/bot'
 import configureI18n from '@/middlewares/configureI18n'
 import handleCountUsers from '@/handlers/handleCountUsers'
+import handleSortedUsers from '@/handlers/handleSortedUsers'
 import handleStart from '@/handlers/start'
 import handleStartCheckTimetable from '@/handlers/startCheckTimetable'
 import i18n from '@/helpers/i18n'
@@ -27,6 +28,7 @@ async function runApp() {
   bot.command('start', handleStart)
   bot.command('startcheck', handleStartCheckTimetable)
   bot.command('getcountusers', handleCountUsers)
+  bot.command('getsortedusers', handleSortedUsers)
   bot.catch(console.error)
   await bot.init()
   run(bot)

@@ -10,6 +10,8 @@ export class UserTimetableBot {
   institution!: string
   @prop({ required: false })
   type?: string
+  @prop({ required: false })
+  username?: string
 }
 
 export const UserModel = getModelForClass(UserTimetableBot)
