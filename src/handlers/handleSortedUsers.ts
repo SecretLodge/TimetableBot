@@ -18,7 +18,7 @@ export default async function handleSortedUsers(ctx: Context) {
       type: 'private',
     }).sort({ createdAt: -1 })
 
-    await ctx.reply(`🏫 ${institution}: ${users.length}`)
+    messageUsers += `🏫 ${institution}: ${users.length}\n\n`
     users.map((user: User) => {
       const date = user.createdAt?.toString().split(' ', 5).join(' ')
       messageUsers += `${
