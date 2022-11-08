@@ -10,6 +10,7 @@ interface User extends UserTimetableBot {
 export default async function handleSortedUsers(ctx: Context) {
   if (env.ADMIN_ID != ctx.dbuser.id) return
   const institutions = await InstitutionModel.distinct('institution')
+  let messageUsers = ``
 
   institutions.map(async (institution) => {
     const users = await UserModel.find({
@@ -18,16 +19,15 @@ export default async function handleSortedUsers(ctx: Context) {
     }).sort({ createdAt: -1 })
 
     await ctx.reply(`🏫 ${institution}: ${users.length}`)
-    users.map(async (user: User) => {
+    users.map((user: User) => {
       const date = user.createdAt?.toString().split(' ', 5).join(' ')
-      await ctx.reply(
-        `${
-          user.username
-            ? `<b>USERNAME</b>: ${user.username}`
-            : `<b>ID</b>: ${user.id}`
-        }\n<b>DATE</b>: ${date}`,
-        { parse_mode: 'HTML' }
-      )
+      messageUsers += `${
+        user.username
+          ? `<b>USERNAME</b>: @${user.username}`
+          : `<b>ID</b>: ${user.id}`
+      }\n<b>DATE</b>: ${date}\n\n`
     })
+    await ctx.reply(messageUsers, { parse_mode: 'HTML' })
+    messageUsers = ''
   })
 }

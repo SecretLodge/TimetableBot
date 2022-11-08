@@ -15,5 +15,5 @@ export default function handleStartCheckTimetable(ctx: Context) {
   void printWhenStartCheck()
   setInterval(() => {
     void allCheckersTimetable(ctx, institution)
-  }, 5 * 60 * 1000)
+  }, 10 * 1000)
 }
