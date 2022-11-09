@@ -35,7 +35,7 @@ const checkTimetable = async ({
     if (timetable) return
     const pathToFile = getPathToFile({ institution, extension, text })
     const pathToPhoto = getPathToPhoto(institution)
-    void downloadFile({ url: href, text, extension, institution })
+    await downloadFile({ url: href, text, extension, institution })
     void saveTimetableToDB({ institution, href, text, extension })
     void setTimeout(() => {
       void sendTimetableToUsers({ pathToPhoto, pathToFile, users, ctx })
